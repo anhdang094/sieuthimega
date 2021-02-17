@@ -1,0 +1,118 @@
+<section id="cart_items">
+  <div class="container">
+    <div class="row" style="margin-bottom: 100px">
+      <div class="col-sm-6">
+        <div class="review-payment">
+          <div class="register-req">
+            <p>Thanh toán</p>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-4">
+            <label>Chọn phương thức thanh toán:</label>
+          </div>
+          <div class="col-sm-8">
+            <select class="select-cart" [ngModel]="paySelectedValue.id" (ngModelChange)="changePaymentSelect($event)">
+              <option *ngFor="let item of paySelectOptions" [ngValue]="item.id">{{item.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-12" style="margin: 50px 0px">
+          <div class="col-sm-6">
+            <div class="infor-charge">
+              <span style="font-weight: 900;font-size: 14px">Thông tin cần thanh toán:</span>
+              <br>
+              <span>Đơn hàng: ZPMG_1232323</span>
+              <br>
+              <span>Số tiền: 24.0000đ</span>
+              <br>
+              <span>Phí thanh toán (nếu có): Khách hàng tự thanh toán.</span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div *ngIf="currentSelectPayment == 1">
+              <img src="../../assets/images/pay/ship_pay.jpg" alt="" style="max-width: 250px"/>
+            </div>
+            <div *ngIf="currentSelectPayment == 2">
+              <span>Vui lòng quét mã QR bên dưới để thanh toán</span>
+              <img src="../../assets/images/pay/momo_pay.jpg" alt="" style="max-width: 250px"/>
+            </div>
+            <div *ngIf="currentSelectPayment == 3">
+              <span>Vui lòng quét mã QR bên dưới để thanh toán</span>
+              <img src="../../assets/images/pay/zalopay_pay.jpg" alt="" style="max-width: 250px"/>
+            </div>
+            <div *ngIf="currentSelectPayment == 4" class="bank-pay">
+              <img src="../../assets/images/pay/vietcombank_pay.jpg" alt="" style="max-width: 250px"/>
+              <div class="row">
+                Thông tin chuyển khoảng:
+              </div>
+              <div class="row">
+                Số tài khoảng: 0511000425421
+              </div>
+              <div class="row">
+                Ngân hàng: Vietcombank - Chi nhánh quận 5, TPHCM
+              </div>
+              <div class="row">
+                Tên chủ tài khoảng: DANG XUAN ANH
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12" style="text-align: center">
+          <a class="btn btn-default check_out" [routerLink]="['/thanhcong']">Xác nhận đặt hàng</a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="register-req">
+          <p>Vui lòng kiểm tra thông tin đơn hàng lần cuối và tiến hành thanh toán</p>
+        </div>
+        <div class="shopper-informations">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="shopper-info">
+                <p class="border-title">Thông tin người mua</p>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Số điện thoại liên lạc:</span> <span>0975702600</span>
+                </div>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Địa chỉ giao hàng:</span> <span>Thôn Bình An, Xã Phước Thành, Huyện Tuy Phước, Tỉnh Bình Định</span>
+                </div>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Mã giảm giá:</span> <span>VNGHTED</span>
+                </div>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Lưu ý cho nhà bán hàng:</span> <span>Vui lòng đặt trước cửa chờ tôi 30 phút</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="bill-to">
+                <p class="border-title">Thông tin shop bán hàng</p>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Tên nhà bán hàng:</span> <span>Công ty cổ phần nghe nhìn toàn cầu</span>
+                </div>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Số điện thoại liên lạc:</span> <span>0975702600</span>
+                </div>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Địa chỉ shop:</span> <span>Thôn Bình An, Xã Phước Thành, Huyện Tuy Phước, Tỉnh Bình Định</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="order-message">
+                <p class="border-title">Thông tin sản phẩm</p>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Tên sản phẩm:</span> <span>Tivi TCL 4K 4CHLEDS</span>
+                </div>
+                <div class="col-sm-12 info-row">
+                  <span class="title">Tổng tiền phải trả:</span> <span>1.000.23 VND</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

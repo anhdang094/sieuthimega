@@ -1,0 +1,18 @@
+<div class="user-suggest">
+  <div *ngFor="let item of collections" class="item-suggest">
+    <div class="row decription">
+      <span>{{item.text}}</span>
+    </div>
+    <div class="row count">
+      <span>{{item.counter}} sản phẩm</span>
+    </div>
+    <div class="row image">
+      <img *ngFor="let image of item.images.split(',')" src="{{url + 'images/' + image + '-true.png'}}">
+    </div>
+    <div class="row btn" style="width: 100%">
+      <a routerLink={{item.url}} type="button" class="btn btn-primary" style="font-size: 12px; margin-top: 5px;
+       background-color: #1fb14c; color: black">
+        Xem ngay</a>
+    </div>
+  </div>
+</div>

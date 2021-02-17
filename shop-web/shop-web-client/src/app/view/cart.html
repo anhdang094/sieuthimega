@@ -1,0 +1,237 @@
+<section id="cart_items">
+  <div class="container-fluid">
+    <div class="row" style="margin-right: 10px">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="container">
+            <div *ngIf="products.length <=0">
+              <div class="row item-buy text-center">
+                <div class="col-sm-7 col-sm-offset-2" style="font-size: 23px;color: #1a00ff;font-weight: normal;">
+                  <i class="fa fa-meh-o" style="margin-right: 10px; font-size: 30px; color: red"></i>Vui lòng thêm món
+                  hàng bạn muốn mua vào giỏ hàng nhé.
+                </div>
+                <div class="col-sm-2">
+                  <a routerLink="" type="button" class="btn btn-default get"
+                     style="font-size: 13px; margin-top: 0px">
+                    Mua sắm ngay</a>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let item of products" class="row item-buy text-center">
+              <div class="col-sm-2 cart_product">
+                <img src="{{url + 'images/' + item.product.imageId + '-false.png'}}" class="girl img-responsive"
+                     alt="" style="max-width: 200px; margin: auto"/>
+              </div>
+              <div class="col-sm-3 cart_description">
+                <h4><a href="">{{item.product.title}}</a></h4>
+                <p>{{item.product.description}}</p>
+              </div>
+              <div class="col-sm-2 cart_price">
+                <div class="row header">
+                  <span>Giá 1 sản phẩm</span>
+                </div>
+                <div class="row">
+                  <p>{{item.product.cost | costFormat}}</p>
+                </div>
+              </div>
+              <div class="col-sm-2 cart_quantity">
+                <div class="cart_quantity_button">
+                  <a class="cart_quantity_up" (click)="decreaseNumProduct(item)"> - </a>
+                  <input class="cart_quantity_input" type="text" name="quantity" autocomplete="off" size="2"
+                         [(ngModel)]="item.quantity">
+                  <a class="cart_quantity_down" (click)="increaseNumProduct(item)"> + </a>
+                </div>
+              </div>
+              <div class="col-sm-1 cart_delete">
+                <a class="btn btn-warning" (click)="delete(item)"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+              </div>
+              <div class="col-sm-2 cart_total">
+                <div class="row header">
+                  <span>Tổng cộng</span>
+                </div>
+                <p class="cart_total_price">{{item.product.cost * item.quantity | costFormat}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="container item-buy normal-weight">
+              <div class="row current-sale">
+                CÁC KHUYẾN MÃI ĐANG DIỄN RA
+                <img src="./assets/images/icon/icon-hot.gif" alt="" style="max-width: 30px; margin-bottom: 20px"/>
+              </div>
+              <div class="row notice-sell">
+                (Lưu ý: Quý khách chỉ được lựa chọn 1 trong các chương trình khuyến mãi.)
+              </div>
+              <div class="row list-style-snow">
+                <ul>
+                  <li *ngFor="let promotion of promotions">
+                    <div style="margin-bottom: 10px">
+                      {{promotion.title}}
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6" style="padding-left: 0px">
+                        <img src="{{url + 'images/' + promotion.imageId + '-false.png'}}" alt=""
+                             style="width: 100%"/>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="row">
+                          <i class="fa fa-gift" aria-hidden="true" style="margin-right: 5px"></i>
+                          <span style="color: black; font-weight: 500">Mã giảm giá: </span>
+                          <br>
+                          <span style="color: red; font-weight: 900">{{promotion.code}}</span>
+                        </div>
+                        <div class="row">
+                          <span style="color: black; font-style: italic; font-weight: 900; font-size: 12px">
+                            {{promotion.name}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 desc-product" style="background-color: #fafafa; font-weight: normal; padding-left: 60px">
+            <div class="row">
+              <div class="row" style="padding: 10px; background-color: #ececec;">
+                <span style="font-weight: 500">Địa chỉ giao hàng</span>
+              </div>
+              <div class="row product-list-right">
+                <div class="col-sm-12">
+                  <i class="fa fa-street-view ico-product-right"></i>
+                  <span>86/33/11 đường 100 Bình Thới</span>
+                </div>
+              </div>
+              <div class="row product-list-right">
+                <div class="col-sm-12">
+                  <i class="fa fa-briefcase ico-product-right" style="color: #0d7d1a"></i>
+                  <span>Giao hàng miễn phí</span>
+                </div>
+              </div>
+              <div class="row product-list-right">
+                <div class="col-sm-12">
+                  <i class="fa fa-money ico-product-right" style="color: #fe980e"></i>
+                  <span>Cam kết chất lượng, hoàn tiền nếu phát hiện hàng giả, hàng kém chất lượng</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="row" style="padding: 10px; background-color: #ececec;">
+                <span style="font-weight: 500">Bảo hành</span>
+              </div>
+              <div class="row product-list-right">
+                <div class="col-sm-12">
+                  <i class="fa fa-heart ico-product-right"></i>
+                  <span>7 ngày đổi trả sản phẩm miễn phí (nếu lỗi thuộc về nhà bán hàng)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<section id="do_action">
+  <div class="container">
+    <div class="heading">
+      <h3>Bạn có muốn thực hiện các bước tiếp theo?</h3>
+      <p>Chọn các tùy chọn về mã giảm giá, tùy chọn về thời điểm giao hàng, địa chỉ giao hàng.</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+          <div class="chose_area">
+            <ul class="user_option">
+              <li>
+                <div class="row cart-row">
+                  <div class="col-sm-4">
+                    <label>Bạn có mã giảm giá ?</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input placeholder="Điền mã giảm giá" formControlName="promotionCode" class="form-control"
+                           [ngClass]="{ 'is-invalid': submitted && f.promotionCode.errors }" (ngModelChange)="calculatePromotion()">
+                    <div *ngIf="f.promotionCode.errors && f.promotionCode.errors.invalid" class="invalid-feedback">
+                      <div *ngIf="f.promotionCode.errors.invalid">Mã promotion chưa đúng hoặc không hoạt động, vui lòng nhập mã khác!</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row cart-row">
+                  <div class="col-sm-4">
+                    <label>Số điện thoại ?</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <input placeholder="Ví dụ: 0978 345 200" formControlName="phone" class="form-control"
+                           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+                    <div *ngIf="submitted && f.phone.errors && f.phone.errors.required" class="invalid-feedback">
+                      <div *ngIf="f.phone.errors.required">Vui lòng nhập số điện thoại!</div>
+                    </div>
+                    <div *ngIf="f.phone.errors" class="invalid-feedback">
+                      <div *ngIf="f.phone.errors.pattern">Số điện thoại chỉ bao gồm số!</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row cart-row">
+                  <div class="col-sm-4">
+                    <label>Địa chỉ giao hàng ?</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <textarea rows="4" cols="50" formControlName="address"
+                              placeholder="Nhập địa chỉ chi tiết số nhà để chúng tôi có thể giao hàng cho bạn"
+                              class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                      <div *ngIf="f.address.errors.required">Vui lòng nhập địa chỉ!</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row cart-row">
+                  <div class="col-sm-4">
+                    <label>Lưu ý cho nhà bán hàng ?</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <textarea rows="4" cols="50" formControlName="notice"
+                              placeholder="Nhập lưu ý cho nhà bán hàng như: thời gian có thể nhận hàng, màu sắc, mẫu mã..."
+                              class="form-control"></textarea>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <button class="btn btn-default check_out" type="submit">Tiếp tục bước thanh toán và xác nhận</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <div class="total_area">
+          <ul>
+            <li><i class="fa fa-shopping-cart" style="color: #fe980e;margin-right: 10px;font-size: 20px;"
+                   aria-hidden="true"></i>
+              Tổng tạm tính <span>{{this.sumAmount | costFormat}}</span></li>
+            <li><i class="fa fa-gift" style="color: #fe57f3;margin-right: 10px;font-size: 20px;"
+                   aria-hidden="true"></i>
+              Khuyến mãi <span>{{this.voucherAmount | costFormat}}</span></li>
+            <li><i class="fa fa-truck" style="color: #0d7d1a;margin-right: 10px;font-size: 20px;"
+                   aria-hidden="true"></i>
+              Phí giao hàng <span>{{defaultFee | costFormat}}</span></li>
+            <li><i class="fa fa-money" style="color: #ff0000;margin-right: 10px;font-size: 20px;"
+                   aria-hidden="true"></i>
+              Số tiền phải trả <span>{{this.sumAmount - this.voucherAmount + this.defaultFee | costFormat}}</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

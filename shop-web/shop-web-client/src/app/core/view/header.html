@@ -1,0 +1,75 @@
+<header id="header"><!--header-->
+  <div class="header-middle"><!--header-middle-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 logo-padding-left">
+          <a href="">
+            <div class="logo pull-left">
+              <div class="col-sm-6 logo-6">
+                <img src="./assets/images/home/logo.png" alt=""/>
+              </div>
+              <div class="col-sm-6 company-text">
+                <div class="row" style="border-bottom: none">
+                  <span>Siêu thị</span>
+                </div>
+                <div class="row company-text line">
+                  <span>Mega</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-8 menu-logo">
+          <div class="shop-menu pull-right">
+            <ul style="margin-top: 10px">
+              <li><a href=""><i class="fa fa-user"></i> Tài khoản</a></li>
+              <li><a href=""><i class="fa fa-ticket"></i> Mã khuyến mãi </a></li>
+              <li><a href="checkout.html"><i class="fa fa-shopping-cart"></i> Đơn hàng của tôi</a></li>
+              <li><a href="cart.html"><i class="fa fa-bell"></i> Thông báo</a></li>
+              <li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header-middle-->
+
+  <div class="header-bottom"><!--header-bottom-->
+    <div class="container-fluid">
+      <div class="row menu-right">
+        <div class="col-sm-6 menu-a">
+          <a href="#"><i class="fa fa-gift"></i> KHUYẾN MÃI HOT <img
+            src="./assets/images/icon/icon-hot.gif" alt="" style="max-width: 30px; margin-bottom: 20px"/></a>
+          <a href="#" style="padding-top: 14px; padding-left: 0px"><i
+            class="fa fa-cart-plus"></i> BÁN HÀNG CÙNG CHÚNG TÔI</a>
+        </div>
+        <div class="col-sm-6">
+          <div class="search_box pull-right" style="width: 100%; border: solid 1px #00958078">
+            <input #searchBox type="text" style="width: 100%" placeholder="Tìm kiếm sản phẩm, danh mục..."
+                   (keyup)="search(searchBox.value)"
+                   (blur)="onBlurSearch()" (focus)="onFocusSearch()"/>
+          </div>
+          <div class="search-box" *ngIf="showSuggestDropdown">
+            <div class="suggest-list" *ngIf="searchMenus">
+              <div *ngFor="let product of products">
+                <a class="suggest-common">
+                  <span class="decription">{{product.description}}</span>
+                </a>
+              </div>
+              <div class="flex-searchbox">
+                <div *ngFor="let catalog of searchMenus; let isOdd=odd" [class.odd-searchbox]="isOdd">
+                  <app-search-menu [menu]=catalog></app-search-menu>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mention">
+        <img src="./assets/images/home/mention.png" alt=""/>
+        <span>Hàng hóa chúng tôi cung cấp là rẻ nhất thị trường, cam kết hoàn tiền nếu quý khách tìm được nơi rẻ hơn, đảm bảo chất lượng tốt nhất, đổi trả miễn phí cho khách hàng.
+        Hotline hỗ trợ: 0786 954 845</span>
+      </div>
+    </div>
+  </div>
+</header>

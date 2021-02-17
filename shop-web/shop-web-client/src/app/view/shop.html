@@ -1,0 +1,238 @@
+<div class="home" style="display: flex">
+  <div style="width: 100%">
+    <section id="slider">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="left-sidebar">
+              <app-menu></app-menu>
+            </div>
+          </div>
+          <div class="col-sm-9" style="padding-right: 10px">
+            <div class="row">
+              <div class="col-sm-8" style="padding-right: 0px; margin-top: -20px; padding-left: 0px">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li *ngFor="let item of slide; let first = first" data-target="#slider-carousel" data-slide-to="0"
+                        [ngClass]="first ? 'active' : null"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-inner">
+                      <div *ngFor="let item of slide; let first = first" class="item"
+                           [ngClass]="first ? 'active' : null">
+                        <div class="col-sm-3">
+                          <h3>
+                            <span>{{item.headerLarge | subString:'-':true}}</span>{{item.headerLarge | subString:'-':false}}
+                          </h3>
+                          <h5>{{item.headerNormal}}</h5>
+                          <p class="item-p"> {{item.content}} </p>
+                          <a routerLink={{item.url}} type="button" class="btn btn-default get"
+                             style="font-size: 13px; margin-bottom: 20px">
+                            Mua sắm ngay</a>
+                        </div>
+                        <div class="col-sm-9">
+                          <img src="{{url + 'images/' + item.imageId + '-true.png'}}" class="girl img-responsive" alt=""
+                               style="width: 100%"/>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4" style="padding-left: 0px">
+                <div class="col-sm-6 first-ads-header">
+                  <img *ngIf="adsImageHeaderIds.length >=9"
+                       src="{{url + 'images/' + adsImageHeaderIds[0] + '-true.png'}}" alt="" style="width: 100%"/>
+                </div>
+                <div class="col-sm-6 first-ads-header">
+                  <img *ngIf="adsImageHeaderIds.length >=9"
+                       src="{{url + 'images/' + adsImageHeaderIds[1] + '-true.png'}}" alt="" style="width: 100%"/>
+                </div>
+                <div class="col-sm-12" style="padding-left: 0px;padding-right: 0px">
+                  <img *ngIf="adsImageHeaderIds.length >=9"
+                       src="{{url + 'images/' + adsImageHeaderIds[2] + '-true.png'}}" alt="" style="width: 100%"/>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-right: 0px">
+              <div class="col-sm-2 item-ads-img">
+                <img *ngIf="adsImageHeaderIds.length >=9" src="{{url + 'images/' + adsImageHeaderIds[3] + '-true.png'}}"
+                     alt="" style="width: 100%"/>
+              </div>
+              <div class="col-sm-2 item-ads-img">
+                <img *ngIf="adsImageHeaderIds.length >=9" src="{{url + 'images/' + adsImageHeaderIds[4] + '-true.png'}}"
+                     alt="" style="width: 100%"/>
+              </div>
+              <div class="col-sm-2 item-ads-img">
+                <img *ngIf="adsImageHeaderIds.length >=9" src="{{url + 'images/' + adsImageHeaderIds[5] + '-true.png'}}"
+                     alt="" style="width: 100%"/>
+              </div>
+              <div class="col-sm-2 item-ads-img">
+                <img *ngIf="adsImageHeaderIds.length >=9" src="{{url + 'images/' + adsImageHeaderIds[6] + '-true.png'}}"
+                     alt="" style="width: 100%"/>
+              </div>
+              <div class="col-sm-2 item-ads-img">
+                <img *ngIf="adsImageHeaderIds.length >=9" src="{{url + 'images/' + adsImageHeaderIds[7] + '-true.png'}}"
+                     alt="" style="width: 100%"/>
+              </div>
+              <div class="col-sm-2 item-ads-img">
+                <img *ngIf="adsImageHeaderIds.length >=9" src="{{url + 'images/' + adsImageHeaderIds[8] + '-true.png'}}"
+                     alt="" style="width: 100%"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-sale">
+      <div class="row deal-time">
+        <div class="col-sm-4 col-md-3 col-lg-2 deal-cls">
+          Khuyến mãi tức thì
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-1 deal-sell">
+          Đang bán
+        </div>
+        <div class="col-sm-2 deal-finish">
+          Kết thúc trong
+        </div>
+        <div class="col-sm-4 deal-time-count">
+          <div class="fs-timer-count pull-left" id="hours"
+               style="background-color: #ffffff; color: #C32E2E;">{{this.time ? ((this.time.getHours() + "").length < 2 ? "0" + this.time.getHours() : this.time.getHours()) : ""}}</div>
+          <div class="fs-timer-colon pull-left"> :</div>
+          <div class="fs-timer-count pull-left" id="minutes"
+               style="background-color: #ffffff; color: #C32E2E;">{{this.time ? ((this.time.getMinutes() + "").length < 2 ? "0" + this.time.getMinutes() : this.time.getMinutes()) : ""}}</div>
+          <div class="fs-timer-colon pull-left"> :</div>
+          <div class="fs-timer-count pull-left" id="milis"
+               style="background-color: #ffffff; color: #C32E2E;">{{this.time ? ((this.time.getSeconds() + "").length < 2 ? "0" + this.time.getSeconds() : this.time.getSeconds()) : ""}}</div>
+        </div>
+      </div>
+      <div class="row deal-image">
+        <app-deal-suggest></app-deal-suggest>
+      </div>
+    </section>
+
+    <section class="user-suggest">
+      <div class="row deal">
+        Bộ sưu tập
+      </div>
+      <div class="row">
+        <app-product-suggest></app-product-suggest>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 mobile-hidden">
+            <div class="left-sidebar">
+              <h2>KHUYẾN MÃI TRONG NGÀY</h2>
+              <div class="panel-group category-products" id="accordian">
+                <div *ngFor="let item of menuByDay" class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a *ngIf="item.subMenu" data-toggle="collapse" data-parent="#accordian"
+                         href="#menubydate{{item.id}}">
+                        <span *ngIf="item.subMenu" class="badge pull-right"><i class="fa fa-plus"></i></span>
+                        {{item.text}}
+                      </a>
+                      <a *ngIf="!item.subMenu" routerLink={{item.url}}>{{item.text}}</a>
+                    </h4>
+                  </div>
+                  <div *ngIf="item.subMenu" id="menubydate{{item.id}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <ul>
+                        <li><a routerLink={{item.subMenu.url}}>{{item.subMenu.text}} </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div><!--/category-productsr-->
+
+              <div class="hot_deal">
+                <img *ngIf="adsImageLeftIds.length >=5" src="{{url + 'images/' + adsImageLeftIds[0] + '-true.png'}}"
+                     alt=""/>
+              </div>
+
+              <app-hot-menu [menu]="bestBuy"></app-hot-menu>
+
+              <div class="price-range">
+                <h2>Lọc theo giá cả</h2>
+                <div class="well text-center">
+                  <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600"
+                         data-slider-step="5"
+                         data-slider-value="[250,450]" id="sl2"><br/>
+                  <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                </div>
+              </div>
+
+              <div class="shipping text-center">
+                <img *ngIf="adsImageLeftIds.length >=5" src="{{url + 'images/' + adsImageLeftIds[1] + '-true.png'}}"
+                     alt=""/>
+              </div>
+              <div class="shipping text-center">
+                <img *ngIf="adsImageLeftIds.length >=5" src="{{url + 'images/' + adsImageLeftIds[2] + '-true.png'}}"
+                     alt=""/>
+              </div>
+              <div class="shipping text-center">
+                <img *ngIf="adsImageLeftIds.length >=5" src="{{url + 'images/' + adsImageLeftIds[3] + '-true.png'}}"
+                     alt=""/>
+              </div>
+              <div class="shipping text-center">
+                <img *ngIf="adsImageLeftIds.length >=5" src="{{url + 'images/' + adsImageLeftIds[4] + '-true.png'}}"
+                     alt=""/>
+              </div>
+              <div class="shipping text-center">
+                <img *ngIf="adsImageLeftIds.length >=5" src="{{url + 'images/' + adsImageLeftIds[5] + '-true.png'}}"
+                     alt=""/>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-sm-9 padding-right">
+            <div class="features_items">
+              <div *ngFor="let product of baseProducts">
+                <app-product [product]="product" [url]="url"></app-product>
+              </div>
+            </div>
+
+            <div class="category-tab">
+              <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tshirt" data-toggle="tab">Mua nhiều nhất</a></li>
+                  <li><a href="#blazers" data-toggle="tab">Gian hàng hot nhất</a></li>
+                  <li><a href="#sunglass" data-toggle="tab">Hot trend</a></li>
+                  <li><a href="#kids" data-toggle="tab">Chuyên gia tư vấn</a></li>
+                  <li><a href="#poloshirt" data-toggle="tab">Hot deal</a></li>
+                </ul>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane fade active in" id="tshirt">
+                  <div *ngFor="let product of hotProducts">
+                    <app-product [product]="product" [url]="url"></app-product>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="recommended_items">
+              <h2 class="title text-center">SẢN PHẨM GỢI Ý CHO BẠN</h2>
+
+              <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <div *ngFor="let product of forYouProducts">
+                      <app-product [product]="product" [url]="url"></app-product>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

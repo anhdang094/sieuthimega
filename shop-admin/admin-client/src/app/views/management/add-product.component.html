@@ -1,0 +1,250 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <i class="icon-note"></i> <strong>Thêm sản phẩm</strong>
+          <div class="card-actions">
+            <a href="https://github.com/digitalBush/jquery.maskedinput">
+              <small class="text-muted">docs</small>
+            </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <fieldset class="form-group">
+            <label>Tên sản phẩm</label>
+            <input type="text" class="form-control" [(ngModel)]="name">
+            <small class="text-muted">ex. Áo thun nam</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" [(ngModel)]="title">
+            <small class="text-muted">ex. Áo thun nam giảm giá sốc</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" [(ngModel)]="description">
+            <small class="text-muted">ex. Áo thun nam nhãn hiệu Zara dành cho nam</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Nhãn hiệu</label>
+            <input type="text" class="form-control" [(ngModel)]="brand">
+            <small class="text-muted">ex. Zara</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Nhóm sản phẩm</label>
+            <fieldset class="form-group">
+              <ng-select
+                class="bootstrap"
+                placeholder="Chọn nhóm ngành sản phẩm"
+                [options]="menuTypes"
+                [allowClear]="true"></ng-select>
+            </fieldset>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Giá sản phẩm</label>
+            <div class="input-group">
+              <span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></span>
+              <input type="text" class="form-control" [(ngModel)]="baseCost">
+            </div>
+            <small class="text-muted">ex. 1000000</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Giá sale sản phẩm</label>
+            <div class="input-group">
+              <span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></span>
+              <input type="text" class="form-control" [(ngModel)]="cost">
+            </div>
+            <small class="text-muted">ex. 980000</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Mã số nhà bán hàng</label>
+            <div class="input-group">
+              <span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-asterisk"></i></span></span>
+              <input type="text" class="form-control" [(ngModel)]="merchantId">
+            </div>
+            <small class="text-muted">ex. ESMART-09630</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Số điện thoại nhà bán hàng</label>
+            <div class="input-group">
+              <span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-mobile"></i></span></span>
+              <input type="text" class="form-control" [(ngModel)]="companyPhone">
+            </div>
+            <small class="text-muted">ex. 08 9832 1003</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Ảnh</label>
+            <div class="input-group">
+              <span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-mobile"></i></span></span>
+              <input type="text" class="form-control" [(ngModel)]="imageIds">
+            </div>
+            <small class="text-muted">ex. 1,2,3,5</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label>Sản phẩm gợi ý</label>
+            <div class="input-group">
+              <span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-mobile"></i></span></span>
+              <input type="text" class="form-control" [(ngModel)]="suggest">
+            </div>
+            <small class="text-muted">ex. 1,2,3,5</small>
+          </fieldset>
+        </div>
+      </div>
+    </div><!-- /.col -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>Giao hàng</strong>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label" for="inline-radios">Phí giao hàng</label>
+            <div class="col-md-8 col-form-label">
+              <div class="form-check form-check-inline mr-1" id="inline-radios">
+                <input class="form-check-input" type="radio" name="inline-radios" id="inlineRadio1" value="1">
+                <label class="form-check-label" for="inlineRadio1">Miễn phí</label>
+              </div>
+              <div class="form-check form-check-inline mr-1">
+                <input class="form-check-input" type="radio" name="inline-radios" id="inlineRadio2" value="2">
+                <label class="form-check-label" for="inlineRadio2">Thu phí</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label" for="inline-radios">Hình thức giao hàng</label>
+            <div class="col-md-8 col-form-label">
+              <div class="form-check form-check-inline mr-1" id="inline-radios3">
+                <input class="form-check-input" type="radio" name="inline-radios" id="inlineRadio4" value="1">
+                <label class="form-check-label" for="inlineRadio1">Tự giao hàng</label>
+              </div>
+              <div class="form-check form-check-inline mr-1">
+                <input class="form-check-input" type="radio" name="inline-radios" id="inlineRadio5" value="2">
+                <label class="form-check-label" for="inlineRadio2">E-smart hỗ trợ giao hàng</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <strong>Thanh toán</strong>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label">Hình thức thanh toán</label>
+            <div class="col-md-8 col-form-label">
+              <div class="form-check form-check-inline mr-1">
+                <input class="form-check-input" type="checkbox" id="inline-checkbox3" value="1">
+                <label class="form-check-label" for="inline-checkbox3">Thanh toán khi nhận hàng</label>
+              </div>
+              <div class="form-check form-check-inline mr-1">
+                <input class="form-check-input" type="checkbox" id="inline-checkbox4" value="2">
+                <label class="form-check-label" for="inline-checkbox4">Thanh toán online</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <strong>Đổi trả và bảo hành</strong>
+        </div>
+        <div class="card-body">
+          <fieldset class="form-group">
+            <label>Thời gian bảo hành</label>
+            <input type="text" class="form-control" [(ngModel)]="maintanceDay">
+            <small class="text-muted">ex. 1 năm</small>
+          </fieldset>
+          <div class="form-group row">
+            <div class="col-md-12 col-form-label">
+              <div class="form-check form-check-inline mr-1">
+                <input class="form-check-input" type="checkbox" id="inline-checkbox2" value="option2">
+                <label class="form-check-label" for="inline-checkbox2">Hỗ trợ đổi mới trong thời hạn bảo hành</label>
+              </div>
+            </div>
+          </div>
+          <fieldset class="form-group">
+            <label>Địa chỉ bảo hành</label>
+            <input type="text" class="form-control" [(ngModel)]="maintanceAddress">
+            <small class="text-muted">ex. 168 Lý Thường Kiệt, Quận 10, TPHCM</small>
+          </fieldset>
+        </div>
+      </div>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+  <div class="card">
+    <div class="card-header">
+      <strong>Upload file</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <FilePond #myPond
+                    name="my-name"
+                    className="my-class"
+                    labelIdle="Drop files here..."
+                    allowMultiple="true"
+                    server="/api/images">
+          </FilePond>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Đặc điểm nổi bật</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xs-12 col-12 col-md-12 form-group">
+              <ckeditor [(ngModel)]="information" [editor]="Editor"></ckeditor>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Cấu hình</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xs-12 col-12 col-md-12 form-group">
+              <ckeditor [(ngModel)]="specialContent" [editor]="Editor"></ckeditor>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Nội dung</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xs-12 col-12 col-md-12 form-group">
+              <ckeditor [(ngModel)]="content" [editor]="Editor"></ckeditor>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button style="margin-bottom: 30px" type="button" class="btn btn-success" (click)="registerProduct()">
+        <i class="fa fa-arrow-circle-o-right"></i>&nbsp; Đăng kí sản phẩm</button>
+    </div>
+  </div>
+</div>

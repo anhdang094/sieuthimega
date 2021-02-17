@@ -1,0 +1,9 @@
+<a class="suggest-common">
+  <div class="row header">
+    <img src={{menu.image}} alt=""/><span>{{menu.description}}</span>
+  </div>
+  <div *ngFor="let item of menu.searchSubMenus" class="row item">
+    <img src={{item.image}} alt=""/>{{item.description}}
+    <span class="decription">({{item.count}} sản phẩm)</span>
+  </div>
+</a>

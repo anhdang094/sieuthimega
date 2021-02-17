@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.sieuthimega" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Siêu thị Mega</name>
+    <description>
+        Uy tín, giá luôn rẻ nhất thị trường
+    </description>
+    <author email="xuananh10110@gmail.com" href="https://sieuthimega.com/">
+        Sieu thi Mega
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <icon src="assets/logo.png" density="mdpi" />
+        <icon src="assets/logo.png" density="ldpi" />
+        <icon src="assets/logo.png" density="hdpi" />
+        <icon src="assets/logo.png" density="xhdpi" />
+        <icon src="assets/logo.png" density="xxhdpi" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <icon src="assets/logo.png" density="mdpi" />
+        <icon src="assets/logo.png" density="ldpi" />
+        <icon src="assets/logo.png" density="hdpi" />
+        <icon src="assets/logo.png" density="xhdpi" />
+        <icon src="assets/logo.png" density="xxhdpi" />
+    </platform>
+</widget>

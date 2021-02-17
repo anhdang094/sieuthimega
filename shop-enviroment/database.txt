@@ -1,0 +1,21 @@
+# MYSQL DATABASE
+
+smart-market.url=jdbc:mysql://35.247.145.28:3306/smart_market?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+smart-market.sqlScriptEncoding=UTF-8
+smart-market.username=smart_market
+smart-market.password=startup@123
+smart-market.driverClassName=com.mysql.jdbc.Driver
+smart-market.max-active=10
+smart-market.testOnBorrow=true
+smart-market.initSQL=SET NAMES 'utf8mb4'
+smart-market.testWhileIdle=true
+smart-market.validationQuery=SELECT
+
+# hibernate.X
+# Show or not log for each sql query
+hibernate.show-sql=true
+# Hibernate ddl auto (none, create, create-drop, validate, update)
+hibernate.ddl-auto=none
+# Naming strategy
+hibernate.dialect=org.hibernate.dialect.MariaDB53Dialect
+hibernate.physical_naming_strategy=vn.smart.market.shop.naming.RealNamingStrategyImpl

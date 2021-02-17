@@ -1,0 +1,16 @@
+<div class="col-sm-3 mobile-50" *ngIf="product && product.product">
+  <div class="product-image-wrapper">
+    <div class="single-products">
+      <div class="productinfo text-center">
+        <img src="{{url + 'images/' + product.product.imageId + '-true.png'}}" alt=""
+             style="height: 120px; max-width: 100%"/>
+        <h2>{{product.product.cost | costFormat}}</h2>
+        <p style="height: 30px">{{product.product.description}}</p>
+        <a (click)="addToCart()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Mua ngay</a>
+        <a [routerLink]="[product.product.menuType + '/' + product.product.title | urlString]"
+           [queryParams]="{filter:product.product.id}"
+           class="btn btn-default show-more"><i class="fa fa-search-plus"></i>Xem chi tiết</a>
+      </div>
+    </div>
+  </div>
+</div>

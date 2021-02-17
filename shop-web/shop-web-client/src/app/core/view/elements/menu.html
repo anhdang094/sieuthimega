@@ -1,0 +1,9 @@
+<h2>DANH MỤC SẢN PHẨM</h2>
+<div class="panel-group category-products panel-menu">
+  <div *ngFor="let item of menu" class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a routerLink={{item.url}}><i [ngClass]="item.icon" aria-hidden="true"></i>{{item.text}}</a>
+      </h4>
+    </div>
+  </div>
+</div>

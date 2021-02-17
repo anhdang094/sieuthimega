@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.sieuthimega" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <name>Siêu thị Mega</name>
+    <description>
+        Uy tín, giá luôn rẻ nhất thị trường
+    </description>
+    <author email="xuananh10110@gmail.com" href="https://sieuthimega.com/">
+        Sieu thi Mega
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <icon density="mdpi" src="assets/logo.png" />
+    <icon density="ldpi" src="assets/logo.png" />
+    <icon density="hdpi" src="assets/logo.png" />
+    <icon density="xhdpi" src="assets/logo.png" />
+    <icon density="xxhdpi" src="assets/logo.png" />
+    <preference name="loglevel" value="DEBUG" />
+</widget>

@@ -1,0 +1,96 @@
+<div class="brands_products"><!--brands_products-->
+  <h2>PHÂN LOẠI</h2>
+  <div class="brands-name">
+    <ul class="nav nav-pills nav-stacked">
+      <li *ngFor="let menuGroup of menuGroups">
+        <a href="">
+          <span class="pull-right">({{menuGroup.counter}})</span>{{menuGroup.text}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div><!--/brands_products-->
+
+<div class="price-range"><!--price-range-->
+  <h2>LỌC THEO GIÁ CẢ</h2>
+  <div class="well">
+    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5"
+           data-slider-value="[250,450]" id="sl2"><br/>
+    <b>$ 0</b> <b class="pull-right">$ 600</b>
+  </div>
+</div><!--/price-range-->
+
+<div class="price-range"><!--price-range-->
+  <h2>LỌC THEO ĐÁNH GIÁ</h2>
+  <div class="well custom">
+    <div class="row">
+      <span class="text">Đánh giá: </span>
+      <span class="star active">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="text">trở lên</span>
+    </div>
+    <div class="row">
+      <span class="text">Đánh giá: </span>
+      <span class="star">&#9733;</span>
+      <span class="star active">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="text">trở lên</span>
+    </div>
+    <div class="row">
+      <span class="text">Đánh giá: </span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star active">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="text">trở lên</span>
+    </div>
+    <div class="row">
+      <span class="text">Đánh giá: </span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star active">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="text">trở lên</span>
+    </div>
+    <div class="row">
+      <span class="text">Đánh giá: </span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star active">&#9733;</span>
+      <span class="text">trở lên</span>
+    </div>
+  </div>
+</div><!--/price-range-->
+
+<div class="price-range"><!--price-range-->
+  <h2>LỌC THEO ĐỊA CHỈ</h2>
+  <div class="well custom" style="padding-top: 20px; padding-bottom: 20px">
+    <div class="row">
+      <i class="fa fa-map-marker"></i>Khu vực TP. Hồ Chí Minh
+    </div>
+    <div class="row">
+      <i class="fa fa-map-marker"></i>Khu vực TP. Hà Nội
+    </div>
+    <div class="row">
+      <i class="fa fa-map-marker"></i>Khu vực Bắc Bộ
+    </div>
+    <div class="row">
+      <i class="fa fa-map-marker"></i>Khu vực Trung Bộ
+    </div>
+    <div class="row">
+      <i class="fa fa-map-marker"></i>Khu vực Nam Bộ
+    </div>
+    <div class="row">
+      <i class="fa fa-map-marker"></i>Khu vực khác
+    </div>
+  </div>
+</div><!--/price-range-->

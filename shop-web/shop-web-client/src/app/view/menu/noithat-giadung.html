@@ -1,0 +1,116 @@
+<body>
+<section id="advertisement">
+  <div class="container-fluid">
+    <img *ngIf="adsImageHeaderIds.length >=1" src="{{url + 'images/' + adsImageHeaderIds[0] + '-true.png'}}"
+         alt=""/>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2 width-20">
+        <div class="left-sidebar">
+          <h2>DANH MỤC SẢN PHẨM</h2>
+          <div class="panel-group category-products" id="accordian">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Tủ quần áo</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Nhà tắm</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Trang trí nhà cửa</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Lau dọn nhà cửa</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Phòng ngủ</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Quạt</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Bàn ủi</a></h4>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a href="#">Khác</a></h4>
+              </div>
+            </div>
+          </div><!--/category-productsr-->
+
+          <product-group-menu [menuGroups]="menuGroups"></product-group-menu>
+
+          <div class="shipping text-center">
+            <img *ngIf="adsImageHeaderIds.length >=2"
+                 src="{{url + 'images/' + adsImageHeaderIds[1] + '-true.png'}}"
+                 alt="" style="width: 100%"/>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-sm-10 padding-right width-80">
+        <div class="features_items"><!--features_items-->
+          <h2 class="title text-center">DANH SÁCH SẢN PHẨM NỘI THẤT GIA DỤNG</h2>
+          <div class="row">
+            <div *ngFor="let item of products" class="col-sm-3 product-list">
+              <div class="product-image-wrapper">
+                <div class="single-products">
+                  <div class="productinfo text-center">
+                    <img style="max-width: 80%; height: 110px"
+                         src="{{url + 'images/' + item.product.imageId + '-false.png'}}" alt=""/>
+                    <h2>{{item.product.cost | costFormat}}</h2>
+                    <p style="height: 30px">{{item.product.description}}</p>
+                    <a href="#" class="btn btn-primary" style="margin-bottom: 10px; background-color: #5ed4b9"><i
+                      class="fa fa-eye"></i>Xem chi
+                      tiết</a>
+                  </div>
+                </div>
+                <div class="choose">
+                  <ul class="nav nav-pills nav-justified">
+                    <li style="text-align: left; width: 1.5%; padding-left: 10px">
+                      <span style="font-weight: normal; font-size: 10px">Đánh giá: </span>
+                      <span style="font-size: 7px">&#9733;</span>
+                      <span style="font-size: 7px;color: #c1c1af">&#9733;</span>
+                      <span style="font-size: 7px;color: #c1c1af">&#9733;</span>
+                      <span style="font-size: 7px;color: #c1c1af">&#9733;</span>
+                      <span style="font-size: 7px;color: #c1c1af">&#9733;</span>
+                    </li>
+                    <li style="color: black;font-size: 9px;font-weight: normal; text-align: right; padding-right: 5px">
+                      <i class="fa fa-map-marker" style="margin-right: 15px; font-size: 15px"></i>Hồ Chí Minh
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <ul class="pagination">
+              <li *ngFor="let item of totalPages" [ngClass]="item == currentPage + 1 ? 'active' : ''"><a
+                (click)="onLoadPage(item)">{{item}}</a></li>
+              <li *ngIf="totalPages && totalPages.length >= 5"><a href="">&raquo;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>

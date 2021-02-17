@@ -1,0 +1,161 @@
+.shipping.text-center img {
+  width: 100%;
+}
+
+.hot_deal img {
+  width: 100%;
+}
+
+.deal {
+  height: 50px;
+  font-size: 20px;
+  color: #e72272;
+  font-weight: normal;
+  padding-top: 10px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.quick-sale .deal-time {
+  height: 40px;
+  background-color: #ff0000;
+  font-size: 13px;
+  color: white;
+  font-weight: normal;
+  padding-left: 30px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.quick-sale {
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+.deal-image.row {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.home .ads img {
+  margin-bottom: 40px;
+}
+
+.home .ads {
+  width: 10%;
+  margin-top: -20px;
+}
+
+.deal-image {
+  border: solid 1px #fa2869;
+}
+
+.fs-timer-count {
+  border-radius: 2px;
+  font-weight: 500;
+  margin: 2px 6px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d3232a;
+  text-align: center;
+  width: 40px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.first-ads-header {
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-top: -20px;
+}
+
+.item-ads-img {
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+.deal-time .deal-cls {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.deal-time .deal-sell {
+  margin-top: 10px;
+}
+
+.deal-time .deal-finish {
+  margin-top: 10px;
+}
+
+.fs-timer-colon {
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .first-ads-header {
+    width: 50%;
+    float: left;
+    margin-top: 0px;
+  }
+  .item-ads-img {
+    display: inline;
+    width: 50%;
+    float: left;
+  }
+  .quick-sale {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .quick-sale .deal-time {
+    padding-left: 5px;
+  }
+  .deal-time .deal-cls {
+    width: 35%;
+    font-size: 10px;
+    float: left;
+    display: inline;
+  }
+
+  .deal-time .deal-sell {
+    width: 15%;
+    font-size: 9px;
+    float: left;
+    display: inline;
+  }
+
+  .deal-time .deal-finish {
+    width: 20%;
+    font-size: 9px;
+    float: left;
+    display: inline;
+  }
+  .deal-time .deal-time-count {
+    width: 30%;
+    float: left;
+    display: inline;
+    margin-top: 8px;
+  }
+  .fs-timer-count {
+    border-radius: 2px;
+    font-weight: 500;
+    margin: 0px;
+    font-size: 10px;
+    color: #fff;
+    background-color: #d3232a;
+    text-align: center;
+    width: 20px;
+    height: 22px;
+    line-height: 22px;
+  }
+  .fs-timer-colon {
+    margin-top: 3px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  .mobile-hidden {
+    display: none;
+  }
+}

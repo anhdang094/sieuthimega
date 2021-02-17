@@ -1,0 +1,392 @@
+<section>
+  <div class="container-fluid">
+    <div class="row" style="margin-right: 10px">
+      <div class="col-sm-10">
+        <div class="product-details">
+          <div class="col-sm-5">
+            <div class="row">
+              <div class="view-product">
+                <img *ngIf="productInfor.imageIds && productInfor.imageIds.length > 0"
+                     src="{{url + 'images/' + imageShow + '-false.png'}}" alt=""/>
+                <h3 (click)="showModalImage()">
+                  <i class="fa fa-search-plus" aria-hidden="true"></i>
+                </h3>
+              </div>
+              <div id="similar-product" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" style="text-align: center">
+                  <div *ngIf="productInfor.imageIds && productInfor.imageIds.length > 0" class="item active">
+                    <a *ngFor="let item of productInfor.imageIds.split(',')">
+                      <img src="{{url + 'images/' + item + '-false.png'}}" (click)="setImage(item)" alt="" style="width: 25%">
+                    </a>
+                  </div>
+                </div>
+                <a class="left item-control" (click)="showPrevImage()" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right item-control" (click)="showNextImage()" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </div>
+            </div>
+            <div class="row row-more-image">
+              <div class="col-sm-12">
+                <i class="fa fa-home"></i> Cam kết chính hiệu 100%
+              </div>
+              <div class="col-sm-12">
+                <i class="fa fa-forward" style="font-size: 16px; color: green; margin-right: 7px"></i>
+                Siêu thị Mega hoàn tiền 200% nếu phát hiện hàng giả
+              </div>
+              <div class="col-sm-12">
+                <i class="fa fa-phone" style="color: #ff6c45"></i> Liên hệ : 0786 954 845
+              </div>
+              <div class="col-sm-12">
+                <i class="fa fa-truck" style="color: #1b86e4"></i>Hotline đặt hàng: 0786 954 845 (Miễn phí từ 8h-21h cả
+                T7, CN)
+              </div>
+              <div class="col-sm-12">
+                <i class="fa fa-envelope" style="color: #fe980e"></i> Email: khachhang.sieuthimega@gmail.com
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-7">
+            <div class="product-information">
+              <div class="row flash-sell">
+                <div class="col-sm-4 text-flash-sale">
+                  F<i class="fa fa-bolt" style="padding: 4px"></i>ASH SALE
+                </div>
+                <div class="col-sm-8 count-flash-sale">
+                  <i class="fa fa-clock-o"></i>
+                  <span class="finish-on">Kết thúc trong</span>
+                  <div class="count-number">
+                    <div class="fs-timer-count pull-right count" id="hours"
+                         style="background-color: #ffffff; color: #C32E2E;">{{this.time ? ((this.time.getSeconds() + "").length < 2 ? "0" + this.time.getSeconds() : this.time.getSeconds()) : ""}}
+                    </div>
+                    <div class="fs-timer-colon pull-right count" style="color: #ffffff; margin-top: 10px"> :</div>
+                    <div class="fs-timer-count pull-right count" id="minutes"
+                         style="background-color: #ffffff; color: #C32E2E;">{{this.time ? ((this.time.getMinutes() + "").length < 2 ? "0" + this.time.getMinutes() : this.time.getMinutes()) : ""}}
+                    </div>
+                    <div class="fs-timer-colon pull-right count" style="color: #ffffff; margin-top: 10px"> :</div>
+                    <div class="fs-timer-count pull-right count" id="milis"
+                         style="background-color: #ffffff; color: #C32E2E;">{{this.time ? ((this.time.getHours() + "").length < 2 ? "0" + this.time.getHours() : this.time.getHours()) : ""}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 style="padding: 15px 0px 15px">{{productInfor.name}}</h2>
+              <p>Mã sản phẩm: {{productInfor.code}}</p>
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="basic-cost">{{productInfor.baseCost | costFormat}}</span>
+                </div>
+                <div class="col-sm-3">
+                  <span
+                    class="decrease-cost">Giảm {{((productInfor.baseCost - productInfor.cost) / productInfor.baseCost * 100).toString().substr(0, 2)}}
+                    %</span>
+                </div>
+              </div>
+              <span>
+									<span>{{productInfor.cost | costFormat}}</span>
+									<label>Số lượng:</label>
+									<input type="text" value="1"/>
+									<button type="button" class="btn btn-fefault cart" style="background-color: #0f85fe" (click)="addToCart()">
+										<i class="fa fa-shopping-cart"></i>
+										Mua ngay
+									</button>
+								</span>
+              <div class="deal-info">
+                Đã bán {{productInfor.sell}} sản phẩm
+                <span class="deal-process"><span style="width: 92.1573%;"></span></span>
+              </div>
+              <div class="row" style="margin-left: 0px;font-size: 18px;font-weight: normal;">
+                Tình trạng: <span class="status">Còn hàng</span>
+              </div>
+              <ul class="ul-product-info"
+                  [innerHTML]="productInfor.specialContent ? productInfor.specialContent.replace('<script','').replace('</script>','') : ''">
+              </ul>
+              <div class="row padding-20">
+                THỜI GIAN DỰ KIẾN GIAO HÀNG
+              </div>
+              <div class="row padding-20 normal-weight infor-product-head">
+                <div class="col-sm-12">
+                  <i class="fa fa-forward" style="font-size: 16px; color: green; margin-right: 7px"></i>
+                  <span
+                    style="font-weight: 600; margin-top: 0px">Bạn muốn nhận hàng trước 11h00 sáng ngày mai (21/04)?</span>
+                </div>
+                <div class="col-sm-12">
+                  Đặt hàng trong 13 giờ tới và chọn <span class="giaohang-nhanh">
+                  Giao hàng nhanh</span> giao nhanh ở bước thanh toán - <a href="">Xem chi tiết</a>
+                </div>
+              </div>
+              <div class="row padding-20 infor-product-head">
+                <i class="fa fa-truck"></i>
+                Giao hàng tiêu chuẩn Dự kiến giao Thứ hai - Thứ ba, 22/04 - 23/04 - Miễn phí
+              </div>
+              <div class="row padding-20 infor-product-head">
+                <i class="fa fa-money"></i>
+                Miễn phí lắp đặt: Lắp đặt trong vòng 48h (Trừ CN/ ngày lễ) kể từ khi giao hàng thành công. Chỉ áp dụng
+                tại TPHCM & Hà Nội - <a href="">Xem chi tiết</a>
+              </div>
+              <a href=""><img src="./assets/images/product-details/share.png" class="share img-responsive" alt=""/></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2 desc-product" style="background-color: #fafafa; font-weight: normal">
+        <div class="row">
+          <div class="row" style="padding: 10px; background-color: #ececec;">
+            <span style="font-weight: 500">Địa chỉ nhà bán hàng</span>
+          </div>
+          <div class="row product-list-right">
+            <div class="col-sm-1">
+              <i class="fa fa-street-view ico-product-right"></i>
+            </div>
+            <div class="col-sm-10">
+              <span>{{merchantInfor.address}}</span>
+            </div>
+          </div>
+          <div class="row product-list-right">
+            <div class="col-sm-12">
+              <i class="fa fa-briefcase ico-product-right" style="color: #0d7d1a"></i>
+              <span>Giao hàng miễn phí</span>
+            </div>
+          </div>
+          <div class="row product-list-right">
+            <div class="col-sm-12">
+              <i class="fa fa-money ico-product-right" style="color: #fe980e"></i>
+              <span>Cam kết chất lượng, hoàn tiền nếu phát hiện hàng giả, hàng kém chất lượng</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="row" style="padding: 10px; background-color: #ececec;">
+            <span style="font-weight: 500">Bảo hành</span>
+          </div>
+          <div class="row product-list-right">
+            <div class="col-sm-1">
+              <i class="fa fa-heart ico-product-right"></i>
+            </div>
+            <div class="col-sm-10">
+              <span>7 ngày đổi trả sản phẩm miễn phí (nếu lỗi thuộc về nhà bán hàng)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="background-color: white">
+          <div class="row" style="padding: 10px; background-color: #ececec;">
+            <span style="font-weight: 500">Nhà bán hàng</span>
+          </div>
+          <div class="row merchant-text-desc">
+            <div class="col-sm-4">
+              <div class="row text-merchant">Đánh giá</div>
+              <div class="row float-right rate" style="text-align: center">
+                <span style="font-size: 12px" [ngClass]="merchantInfor.rate >= 1 ? 'start-active' : ''">&#9733;</span>
+                <span style="font-size: 12px" [ngClass]="merchantInfor.rate >= 2 ? 'start-active' : ''">&#9733;</span>
+                <span style="font-size: 12px" [ngClass]="merchantInfor.rate >= 3 ? 'start-active' : ''">&#9733;</span>
+                <span style="font-size: 12px" [ngClass]="merchantInfor.rate >= 4 ? 'start-active' : ''">&#9733;</span>
+                <span style="font-size: 12px" [ngClass]="merchantInfor.rate >= 5 ? 'start-active' : ''">&#9733;</span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="row text-merchant">Giao đúng hạn</div>
+              <div class="row text-merchant float-right">{{merchantInfor.ontimeDelivery}}%</div>
+            </div>
+            <div class="col-sm-4">
+              <div class="row text-merchant">Tỉ lệ phản hồi</div>
+              <div class="row text-merchant float-right">{{merchantInfor.responseRate}}%</div>
+            </div>
+          </div>
+          <div class="row chat-merchant">
+            <i class="fa fa-comments-o"></i>Chat với nhà bán hàng
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="category-tab shop-details-tab">
+        <div class="col-sm-12">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#details" data-toggle="tab">Thông tin chi tiết</a></li>
+            <li><a href="#companyprofile" (click)="getMerchant()" data-toggle="tab">Thông tin nhà bán hàng</a></li>
+            <li><a href="#reviews" (click)="getComment()" data-toggle="tab">Đánh giá (5)</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div class="tab-pane fade active in" id="details">
+            <div class="row product-detail-text">
+              <div class="col-sm-8 non-margin">
+                <div class="row title">MÔ TẢ SẢN PHẨM</div>
+                <div class="row description"
+                     [innerHTML]="productInfor.content ? productInfor.content.replace('<script','').replace('</script>','') : ''">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="row title">THÔNG TIN CHI TIẾT</div>
+                <div class="row description"
+                     [innerHTML]="productInfor.information ? productInfor.information.replace('<script','').replace('</script>','') : ''">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="companyprofile">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <img style="width: 40px" src="../../assets/images/icon/badge.png" alt=""/>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px">
+                  <span style="font-weight: 500;font-size: 13px">Chứng nhận bởi siêu thị Mega</span>
+                  <br>
+                  Cửa hàng đã cung cấp đầy đủ giấy tờ kinh doanh
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <img style="width: 40px" src="../../assets/images/icon/genuine.png" alt=""/>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px">
+                  <span style="font-weight: 500;font-size: 13px">Cam kết hàng chính hiệu 100%</span>
+                  <br>
+                  Cửa hàng này đã cam kết
+                  chỉ bán sản phẩm thật
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <img style="width: 40px" src="../../assets/images/icon/refund.png" alt=""/>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px">
+                  <span style="font-weight: 500;font-size: 13px">Hoàn tiền 200%</span>
+                  <br>
+                  Siêu thị mega trực tiếp hoàn tiền 200%
+                  trong trường hợp phát hiện hàng giả
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 15px">
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <i style="font-size: 35px;" class="fa fa-clock-o"
+                     aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px; margin-top: 10px">
+                  <span>Thành viên: Từ 9+ năm</span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <i style="font-size: 35px; color: #12ea37" class="fa fa-file-text-o"
+                     aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px; margin-top: 10px">
+                  VAT: Xuất hóa đơn cho tất cả các sản phẩm
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <i style="font-size: 35px; color: #1815e6" class="fa fa-shopping-cart"
+                     aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px; margin-top: 10px">
+                  <span>Sản phẩm: 30 sản phẩm</span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <i style="font-size: 35px;" class="fa fa-home"
+                     aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px; margin-top: 10px">
+                  Loại hình: doanh nghiệp
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px; margin-top: 20px">
+              <div class="col-sm-4">
+                <div class="col-sm-2" style="padding-right: 0px">
+                  <i style="font-size: 35px; color: orange;" class="fa fa-star-o"
+                     aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-9" style="padding-left: 0px; margin-top: 10px">
+                  <span>Đánh giá: </span>
+                </div>
+              </div>
+            </div>
+            <div class="row company-list">
+              DANH SÁCH SẢN PHẨM CỦA CỬA HÀNG
+            </div>
+            <div class="row">
+              <div *ngFor="let item of productOfMerchants">
+                <app-product [product]="item" [url]="url"></app-product>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="reviews">
+            <div class="col-sm-12">
+              <div *ngFor="let item of comments" class="comment">
+                <ul>
+                  <li><a href=""><i class="fa fa-user"></i>anh.dang</a></li>
+                  <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                  <li><a href=""><i class="fa fa-calendar-o"></i>31 - 12 - 2014</a></li>
+                </ul>
+                <p style="font-weight: normal">Sản phẩm tốt, nhà bán hàng uy tín.</p>
+              </div>
+              <p><b>Đánh giá của bạn</b></p>
+              <form action="#">
+										<span>
+											<input type="text" placeholder="Tên của bạn"/>
+											<input type="email" placeholder="Địa chỉ email"/>
+										</span>
+                <textarea name=""></textarea>
+                <div class="row" style="margin-right: 0px; margin-left: 0px">
+                  <b>Chấm điểm : </b>
+                  <span style="font-size: 12px">&#9733;</span>
+                  <span style="font-size: 12px;color: #c1c1af">&#9733;</span>
+                  <span style="font-size: 12px;color: #c1c1af">&#9733;</span>
+                  <span style="font-size: 12px;color: #c1c1af">&#9733;</span>
+                  <span style="font-size: 12px;color: #c1c1af">&#9733;</span>
+                </div>
+                <button type="button" class="btn btn-default pull-right">
+                  Bình luận
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="recommended_items">
+        <h2 class="title text-center">Sản phẩm gợi ý cho bạn</h2>
+
+        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="item active">
+              <div *ngFor="let item of productSuggesstions.slice(0, 4)">
+                <app-product [product]="item" [url]="url"></app-product>
+              </div>
+            </div>
+            <div *ngIf="productSuggesstions.length > 4" class="item">
+              <div *ngFor="let item of productSuggesstions.slice(4, productSuggesstions.length)">
+                <app-product [product]="item" [url]="url"></app-product>
+              </div>
+            </div>
+          </div>
+          <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
